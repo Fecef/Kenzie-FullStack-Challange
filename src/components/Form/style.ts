@@ -37,7 +37,7 @@ export const Box = styled.form`
         background-color: transparent;
         transition-duration: 0.2s;
         width: 100%;
-
+        
 
         :hover,
         :focus {
@@ -45,4 +45,14 @@ export const Box = styled.form`
             color: #fff;
         }
     }
+
+    button:last-child {
+            border: 1px solid red;
+
+            :hover,
+            :focus {
+                background-color: red;
+                color: #fff;
+            }
+        }
 `

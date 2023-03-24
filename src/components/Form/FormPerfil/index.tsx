@@ -25,7 +25,8 @@ export function FormPerfil() {
                 <input type="tel" name="phone" id="phone" autoComplete="off" />
             </label>
 
-            <button type="submit">Enviar</button>
+            <button type="submit">Alterar</button>
+            <button type="submit">Encerrar Conta</button>
         </Box>
     )
 }
