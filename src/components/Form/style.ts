@@ -46,7 +46,7 @@ export const Box = styled.form`
         }
     }
 
-    button:last-child {
+    button.delete {
             border: 1px solid red;
 
             :hover,
