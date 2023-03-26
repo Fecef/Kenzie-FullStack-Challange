@@ -1,8 +1,12 @@
+import { GetServerSideProps, NextPage } from "next";
 import { FaTrash, FaEdit } from "react-icons/fa";
 
 import { Box } from "./style";
+import { Props } from "./interface";
+import { IContact } from "@/interfaces/contact";
+import api from "@/services/api";
 
-export function Table() {
+export const Table: NextPage<Props> = ({ contacts }) => {
     return (
         <Box cellSpacing="0">
             <caption>CONTATOS ADICIONADOS</caption>
@@ -17,23 +21,31 @@ export function Table() {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Felipe César</td>
-                    <td>fecef.figueiredo@gmail.com</td>
-                    <td>(11) 9-4545-5167</td>
-                    <td>24-03-2023</td>
-                    <th><FaEdit className="icon"/></th>
-                    <th><FaTrash className="icon"/></th>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>fecef@gmail.com</td>
-                    <td>(11) 9-4545-5167</td>
-                    <td>24-03-2023</td>
-                    <th><FaEdit className="icon"/></th>
-                    <th><FaTrash className="icon"/></th>
-                </tr>
+                {contacts ?
+
+                    contacts.map((contact, index) => {
+                        return (
+                            <tr key={index}>
+                                <td>{contact.name}</td>
+                                <td>{contact.email}</td>
+                                <td>{contact.phone}</td>
+                                <td>{contact.createdAt}</td>
+                                <th><FaEdit className="icon" /></th>
+                                <th><FaTrash className="icon" /></th>
+                            </tr>
+                        )
+                    })
+                    :
+                    false
+                }
             </tbody>
         </Box>
     )
+}
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+    const res = await api.get("/user/contact")
+    const contacts: IContact[] = res.data
+
+    return { props: { contacts } }
 }

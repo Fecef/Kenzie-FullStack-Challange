@@ -25,3 +25,8 @@ export const deleteContactController = async (req: Request, res: Response) => {
     return res.status(204).json(data)
 }
 
+export const retrieveContactController = async (req: Request, res: Response) => {
+    const data = await service.retrieveContactService(req.foundContact);
+
+    return res.status(200).json(data)
+}

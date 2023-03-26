@@ -38,6 +38,12 @@ userRouter.get("/contact",
     middleware.validateIfUserExistsMiddleware,
     controller.listContactController
 );
+userRouter.get("/contact/:id",
+    middleware.validateTokenMiddleware,
+    middleware.validateIfUserExistsMiddleware,
+    middleware.validateIfContactExistsMiddleware,
+    controller.retrieveContactController
+);
 userRouter.patch("/contact/:id",
     middleware.validateTokenMiddleware,
     middleware.validateIfUserExistsMiddleware,
