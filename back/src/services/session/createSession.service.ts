@@ -5,7 +5,7 @@ import { AppError } from "../../errors";
 import jwt from "jsonwebtoken";
 import { IUserLoginRequest } from "../../interfaces/user";
 
-export const createSessionService = async ({ email, password }: IUserLoginRequest): Promise<string> => {
+export const createSessionService = async ({ email, password }: IUserLoginRequest) => {
     const userRepos = AppDataSource.getRepository(User);
     const user = await userRepos.findOneBy({ email: email });
     const passwordMatch = await compare(password, user.password);
@@ -31,5 +31,5 @@ export const createSessionService = async ({ email, password }: IUserLoginReques
         }
     );
 
-    return token;
+    return [token, user.id];
 }

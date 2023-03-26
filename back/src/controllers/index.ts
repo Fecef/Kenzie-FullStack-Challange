@@ -1,6 +1,6 @@
 import { createContactController, deleteContactController, listContactController, retrieveContactController, updateContactController } from './contact.controller';
 import { createSessionController } from './session.controller';
-import { createUserController, listUserController, updateUserController, deleteUserController } from "./user.controller";
+import { createUserController, listUserController, updateUserController, deleteUserController, retrieveUserController } from "./user.controller";
 
 export {
     createUserController,
@@ -12,5 +12,6 @@ export {
     listContactController,
     updateContactController,
     deleteContactController,
-    retrieveContactController
+    retrieveContactController,
+    retrieveUserController
 }

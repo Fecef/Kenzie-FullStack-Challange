@@ -14,6 +14,11 @@ userRouter.post("",
 userRouter.get("",
     controller.listUserController
 );
+userRouter.get("/retrieve",
+    middleware.validateTokenMiddleware,
+    middleware.validateIfUserExistsMiddleware,
+    controller.retrieveUserController
+);
 userRouter.patch("",
     middleware.validateTokenMiddleware,
     middleware.validateSchemaMiddleware(serializer.updateUserRequestShape),

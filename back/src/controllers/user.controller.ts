@@ -13,6 +13,12 @@ export const listUserController = async (req: Request, res: Response) => {
     return res.status(200).json(data);
 }
 
+export const retrieveUserController = async (req: Request, res: Response) => {
+    const data = await service.retrieveUserService(req.foundUser);
+
+    return res.status(200).json(data)
+}
+
 export const updateUserController = async (req: Request, res: Response) => {
     const data = await service.updateUserService(req.foundUser, req.body);
 
