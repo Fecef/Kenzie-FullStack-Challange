@@ -16,6 +16,8 @@ export function FormPerfil({ user }: Props) {
 
     const formSubmit = (data: IFormPerfil) => {
         const sanitaziedData = pickBy(data, value => value!.length > 0);
+        console.log(user);
+        
         update(sanitaziedData)
     };
 

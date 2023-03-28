@@ -17,7 +17,7 @@ export function FormRegister() {
 
             <label>
                 Nome Completo
-                <input type="text" id="name" autoComplete="off" value="Felipe César" {...register("name")} />
+                <input type="text" id="name" autoComplete="off" {...register("name")} />
             </label>
 
             <label>
@@ -27,12 +27,12 @@ export function FormRegister() {
 
             <label>
                 Password
-                <input type="password" id="password" value="1234" {...register("password")} />
+                <input type="password" id="password" {...register("password")} />
             </label>
 
             <label>
                 Celular
-                <input type="tel" id="phone" autoComplete="off" value="11945455167" {...register("phone")} />
+                <input type="tel" id="phone" autoComplete="off" {...register("phone")} />
             </label>
 
             <button type="submit">Enviar</button>

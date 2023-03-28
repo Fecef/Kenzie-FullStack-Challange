@@ -17,12 +17,12 @@ export function FormLogin() {
 
             <label>
                 Email
-                <input type="email" id="email" autoComplete="off" value="aaaa@gmail.com" {...register("email")} />
+                <input type="email" id="email" autoComplete="off" {...register("email")} />
             </label>
 
             <label>
                 Password
-                <input type="password" id="password" value="1234" {...register("password")} />
+                <input type="password" id="password" {...register("password")} />
             </label>
 
             <button type="submit">Enviar</button>

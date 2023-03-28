@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import nookies from "nookies"
 
 import { createContext, useContext } from "react";
 import { IFormPerfil, IFormRegister } from "@/components/Form/interface";
@@ -24,9 +25,9 @@ export const UserProvider = ({ children }: IProviderProps) => {
     }
 
     const update = async (userData: IFormPerfil) => {
-        const res = await api.userUpdate(userData);
+        await api.userUpdate(userData);
 
-        if (res) router.push("/dashboard")
+        router.push("/dashboard")
     }
 
     const deleteUser = async () => {
