@@ -4,7 +4,7 @@ import "dotenv/config";
 
 const validateTokenMiddleware = async (req: Request, res: Response, next: NextFunction) => {
     let token = req.headers.authorization;
-    
+
     if (!token) {
         return res.status(401).json({ message: "Invalid token." });
     }
@@ -18,11 +18,8 @@ const validateTokenMiddleware = async (req: Request, res: Response, next: NextFu
 
         req.user = {
             id: decoded.sub,
-            email: decoded.email,
-            phone: decoded.phone,
-            isActive: decoded.isActive
         }
-        
+
         return next();
     });
 }

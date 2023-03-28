@@ -1,12 +1,10 @@
-import { GetServerSideProps, NextPage } from "next";
-import { FaTrash, FaEdit } from "react-icons/fa";
-
+import { Props } from "@/pages/dashboard";
 import { Box } from "./style";
-import { Props } from "./interface";
-import { IContact } from "@/interfaces/contact";
-import api from "@/services/api";
 
-export const Table: NextPage<Props> = ({ contacts }) => {
+import { FaEdit } from "react-icons/fa";
+import Link from "next/link";
+
+export const Table = ({ contacts }: Props) => {
     return (
         <Box cellSpacing="0">
             <caption>CONTATOS ADICIONADOS</caption>
@@ -16,8 +14,7 @@ export const Table: NextPage<Props> = ({ contacts }) => {
                     <th>Email</th>
                     <th>Contato</th>
                     <th>Adicionado Em</th>
-                    <th>Editar</th>
-                    <th>Remover</th>
+                    <th>Editar/Remover</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,8 +27,7 @@ export const Table: NextPage<Props> = ({ contacts }) => {
                                 <td>{contact.email}</td>
                                 <td>{contact.phone}</td>
                                 <td>{contact.createdAt}</td>
-                                <th><FaEdit className="icon" /></th>
-                                <th><FaTrash className="icon" /></th>
+                                <th><Link href={`./contact/${contact.id}`}><FaEdit className="icon" /></Link></th>
                             </tr>
                         )
                     })
@@ -41,11 +37,4 @@ export const Table: NextPage<Props> = ({ contacts }) => {
             </tbody>
         </Box>
     )
-}
-
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
-    const res = await api.get("/user/contact")
-    const contacts: IContact[] = res.data
-
-    return { props: { contacts } }
 }

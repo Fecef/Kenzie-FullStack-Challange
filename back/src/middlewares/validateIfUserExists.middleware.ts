@@ -1,3 +1,4 @@
+import { createUserResponseShape } from './../serializers/user.schema';
 import { Request, Response, NextFunction } from "express";
 import AppDataSource from "../data-source";
 import { User } from "../entities/user.entity";
@@ -11,7 +12,9 @@ const validateIfUserExistsMiddleware = async (req: Request, res: Response, next:
         throw new AppError("User not found.", 404);
     }
 
-    req.foundUser = user;
+    const userWithouPass = await createUserResponseShape.validate(user, { stripUnknown: true })
+    
+    req.user = userWithouPass;
 
     return next();
 };

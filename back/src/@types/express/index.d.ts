@@ -7,14 +7,12 @@ declare global {
     namespace Express {
         interface Request {
             user: {
-                id?: string,
+                id: string,
                 name?: string,
                 email?: string,
                 phone?: string,
                 isActive?: boolean,
-                createdAt?: Date
             },
-            foundUser: IUser,
             foundContact: IContact
         }
     }

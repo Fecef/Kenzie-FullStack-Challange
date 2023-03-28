@@ -9,7 +9,7 @@ const validateIfContactExistsMiddleware = async (req: Request, res: Response, ne
         const contact = await contactRepos
             .createQueryBuilder("contact")
             .where("contact.id = :id", { id: req.params.id })
-            .andWhere("contact.userId = :userId", { userId: req.foundUser.id })
+            .andWhere("contact.userId = :userId", { userId: req.user.id })
             .getOne();
 
         if (!contact) {

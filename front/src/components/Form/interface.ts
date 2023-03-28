@@ -16,3 +16,9 @@ export interface IFormPerfil {
     password?: string,
     phone?: string
 }
+
+export interface IContactPerfil {
+    name?: string,
+    email?: string,
+    phone?: string
+}

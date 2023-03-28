@@ -1,12 +1,12 @@
 export interface IUser {
     id: string
-    name: string
-    email: string
-    phone: string
-    isActive: boolean
-    createdAt: Date
+    name?: string
+    email?: string
+    password?: string
+    phone?: string
+    isActive?: boolean
+    createdAt?: Date
 }
-
 export interface IUserRegisterRequest {
     name: string
     email: string

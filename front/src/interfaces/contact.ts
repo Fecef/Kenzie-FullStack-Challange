@@ -5,3 +5,9 @@ export interface IContact {
     phone: string
     createdAt: string
 }
+
+export interface IContactCreate {
+    name: string
+    email: string
+    phone: string
+}

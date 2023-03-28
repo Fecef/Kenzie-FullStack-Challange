@@ -4,10 +4,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Box } from "../style";
 import { IFormLogin } from "../interface";
 import { schemaFormLogin } from "../schema";
+import { useAuth } from "@/contexts/authContext";
 
 export function FormLogin() {
+    const { login } = useAuth()
     const { register, handleSubmit, formState: { errors } } = useForm<IFormLogin>({ resolver: yupResolver(schemaFormLogin) })
-    const formSubmit = (data: IFormLogin) => console.log(data);
+    const formSubmit = (data: IFormLogin) => login(data);
 
     return (
         <Box onSubmit={handleSubmit(formSubmit)}>
@@ -15,7 +17,7 @@ export function FormLogin() {
 
             <label>
                 Email
-                <input type="email" id="email" autoComplete="off" value="fecef.figueiredo@gmail.com" {...register("email")} />
+                <input type="email" id="email" autoComplete="off" value="aaaa@gmail.com" {...register("email")} />
             </label>
 
             <label>

@@ -1,4 +1,4 @@
-import { InitialMigration1679763672559 } from './migrations/1679763672559-InitialMigration';
+import { InitialMigration1679952310783 } from './migrations/1679952310783-InitialMigration';
 import { DataSource } from "typeorm"
 import "dotenv/config"
 import { User } from "./entities/user.entity"
@@ -22,7 +22,7 @@ const AppDataSource = new DataSource(
             logging: true,
             synchronize: false,
             entities: [User, Contact],
-            migrations: [InitialMigration1679763672559]
+            migrations: [InitialMigration1679952310783]
         }
 )
 

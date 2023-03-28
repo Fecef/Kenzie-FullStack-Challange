@@ -5,7 +5,7 @@ import { WelcomeMessage } from '@/components/WelcomeMessage'
 import { FormLogin } from '@/components/Form/FormLogin'
 import { Footer } from '@/components/Footer'
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -28,3 +28,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home;

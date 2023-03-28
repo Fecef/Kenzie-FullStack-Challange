@@ -39,8 +39,7 @@ export const Box = styled.form`
         width: 100%;
         
 
-        :hover,
-        :focus {
+        :hover {
             background-color: var(--color-grey4);
             color: #fff;
         }
@@ -49,8 +48,7 @@ export const Box = styled.form`
     button.delete {
             border: 1px solid red;
 
-            :hover,
-            :focus {
+            :hover {
                 background-color: red;
                 color: #fff;
             }

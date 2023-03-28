@@ -19,7 +19,7 @@ export class User {
 
     @Column({ length: 20 })
     phone: string;
-    
+
     @Column({ default: true })
     isActive: boolean;
 
@@ -29,7 +29,7 @@ export class User {
     @BeforeUpdate()
     @BeforeInsert()
     hashPassword() {
-        this.password = hashSync(this.password, 10);
+        if (this.password) this.password = hashSync(this.password, 10);
     }
 
     @OneToMany(() => Contact, contacts => contacts.user)

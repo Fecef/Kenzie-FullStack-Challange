@@ -1,18 +1,20 @@
 import { Container } from "@/components/Container";
 import { Footer } from "@/components/Footer";
-import { FormContact } from "@/components/Form/FromContact";
 import { Header } from "@/components/Header";
+import { FormAddContact } from "@/components/Form/FromAddContact";
 
-export default function Perfil() {
+const Contact = () => {
     return (
         <>
             <Header />
             <main>
                 <Container>
-                    <FormContact />
+                    <FormAddContact />
                 </Container>
             </main>
             <Footer />
         </>
     )
 }
+
+export default Contact;

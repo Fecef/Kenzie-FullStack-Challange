@@ -2,12 +2,14 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Box } from "../style";
-import { IFormRegister } from "../interface";
-import { schemaFormRegister } from "../schema";
+import { schemaFormAddContact } from "../schema";
+import { useContact } from "@/contexts/contactContext";
+import { IContactCreate } from "@/interfaces/contact";
 
-export function FormContact() {
-    const { register, handleSubmit, formState: { errors } } = useForm<IFormRegister>({ resolver: yupResolver(schemaFormRegister) })
-    const formSubmit = (data: IFormRegister) => console.log(data);
+export function FormAddContact() {
+    const { addContact } = useContact();
+    const { register, handleSubmit, formState: { errors } } = useForm<IContactCreate>({ resolver: yupResolver(schemaFormAddContact) })
+    const formSubmit = (data: IContactCreate) => addContact(data);
 
     return (
         <Box onSubmit={handleSubmit(formSubmit)}>
@@ -21,11 +23,6 @@ export function FormContact() {
             <label>
                 Email
                 <input type="email" id="email" autoComplete="off" {...register("email")} />
-            </label>
-
-            <label>
-                Password
-                <input type="password" id="password" {...register("password")} />
             </label>
 
             <label>

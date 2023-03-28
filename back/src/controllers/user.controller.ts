@@ -14,13 +14,13 @@ export const listUserController = async (req: Request, res: Response) => {
 }
 
 export const retrieveUserController = async (req: Request, res: Response) => {
-    const data = await service.retrieveUserService(req.foundUser);
+    const data = await service.retrieveUserService(req.user);
 
     return res.status(200).json(data)
 }
 
 export const updateUserController = async (req: Request, res: Response) => {
-    const data = await service.updateUserService(req.foundUser, req.body);
+    const data = await service.updateUserService(req.user, req.body);
 
     return res.status(200).json(data)
 }

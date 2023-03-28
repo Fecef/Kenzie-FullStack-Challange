@@ -8,6 +8,11 @@ import { IUserLoginRequest } from "../../interfaces/user";
 export const createSessionService = async ({ email, password }: IUserLoginRequest) => {
     const userRepos = AppDataSource.getRepository(User);
     const user = await userRepos.findOneBy({ email: email });
+
+    if (!user) {
+        throw new AppError("User not found.", 404);
+    }
+
     const passwordMatch = await compare(password, user.password);
 
     if (!user.isActive) {
