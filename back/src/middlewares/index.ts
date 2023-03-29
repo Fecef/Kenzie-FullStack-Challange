@@ -5,9 +5,9 @@ import validateSchemaMiddleware from "./validateSchema.middleware";
 import validateTokenMiddleware from "./validateToken.middleware";
 
 export {
-    validateSchemaMiddleware,
-    validateTokenMiddleware,
-    validateIfUserExistsMiddleware,
-    validateIfContactExistsMiddleware,
-    validateDuplicateEmailMiddleware,
-}
+  validateSchemaMiddleware,
+  validateTokenMiddleware,
+  validateIfUserExistsMiddleware,
+  validateIfContactExistsMiddleware,
+  validateDuplicateEmailMiddleware,
+};

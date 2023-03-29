@@ -4,17 +4,17 @@ import { Header } from "@/components/Header";
 import { FormAddContact } from "@/components/Form/FromAddContact";
 
 const Contact = () => {
-    return (
-        <>
-            <Header />
-            <main>
-                <Container>
-                    <FormAddContact />
-                </Container>
-            </main>
-            <Footer />
-        </>
-    )
-}
+  return (
+    <>
+      <Header />
+      <main>
+        <Container>
+          <FormAddContact />
+        </Container>
+      </main>
+      <Footer />
+    </>
+  );
+};
 
 export default Contact;

@@ -1,5 +1,5 @@
 import { GetServerSideProps, NextPage } from "next";
-import nookies from "nookies"
+import nookies from "nookies";
 
 import { Container } from "@/components/Container";
 import { Footer } from "@/components/Footer";
@@ -9,46 +9,45 @@ import { IContact } from "@/interfaces/contact";
 import { api } from "@/services/api";
 
 export interface Props {
-    contacts: IContact[]
+  contacts: IContact[];
 }
 
 const Dashboard: NextPage<Props> = ({ contacts }: any) => {
-    return (
-        <>
-            <Header />
-            <main>
-                <Container>
-                    <Table contacts={contacts} />
-                </Container>
-            </main>
-            <Footer />
-        </>
-    )
-}
+  return (
+    <>
+      <Header />
+      <main>
+        <Container>
+          <Table contacts={contacts} />
+        </Container>
+      </main>
+      <Footer />
+    </>
+  );
+};
 
 export default Dashboard;
 
 export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
-    const cookies = nookies.get(ctx)
-    const token = cookies["kenzie.token"]
+  const cookies = nookies.get(ctx);
+  const token = cookies["kenzie.token"];
 
-    if (!token) {
-        return {
-            redirect: {
-                destination: "/",
-                permanent: false
-            }
-        }
-    }
+  if (!token) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
-    const res = await api.get("/user/contact", {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    })
+  const res = await api.get("/user/contact", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
-    const contacts: IContact[] = res.data
+  const contacts: IContact[] = res.data;
 
-    return { props: { contacts } }
-}
-
+  return { props: { contacts } };
+};

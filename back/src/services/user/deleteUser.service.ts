@@ -3,9 +3,9 @@ import { User } from "../../entities/user.entity";
 import { IUser } from "../../interfaces/user";
 
 export const deleteUserService = async (user: IUser): Promise<void> => {
-    const userRepos = AppDataSource.getRepository(User);
+  const userRepos = AppDataSource.getRepository(User);
 
-    user.isActive = false;
+  user.isActive = false;
 
-    await userRepos.save(user);
-}
+  await userRepos.save(user);
+};

@@ -4,17 +4,17 @@ import { FormRegister } from "@/components/Form/FormRegister";
 import { Header } from "@/components/Header";
 
 const Register = () => {
-    return (
-        <>
-            <Header />
-            <main>
-                <Container>
-                    <FormRegister />
-                </Container>
-            </main>
-            <Footer />
-        </>
-    )
-}
+  return (
+    <>
+      <Header />
+      <main>
+        <Container>
+          <FormRegister />
+        </Container>
+      </main>
+      <Footer />
+    </>
+  );
+};
 
 export default Register;
