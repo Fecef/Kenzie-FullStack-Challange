@@ -1,10 +1,14 @@
 ## INSTALAÇÃO
 ```
-yarn dev
+yarn
 ```
 ## EXECUTAR MIGRAÇÕES
 ```
 npm run typeorm migration:run -- -d ./src/data-source
+```
+## RODAR APLICAÇÂO
+```
+yarn dev
 ```
 ## Base URL
 http://localhost:3001
