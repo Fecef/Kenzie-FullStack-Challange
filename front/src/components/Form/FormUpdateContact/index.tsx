@@ -66,7 +66,7 @@ const FormUpdateContact = ({ contact, id }: Props) => {
 
       <button type="submit">Alterar</button>
       <button className="delete" type="button" onClick={() => handleDelete()}>
-        Encerrar Conta
+        Excluir contato
       </button>
     </Box>
   );
